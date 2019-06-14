@@ -1,0 +1,14 @@
+package com.kitri.hello2;
+
+public class HelloMain {
+	public static void main(String[] args) {
+		HelloServiceKor helloServiceKor =  new HelloServiceKor();
+		String msgKor = helloServiceKor.hello("형태희");
+		
+		HelloServiceEng helloServiceEng =  new HelloServiceEng();
+		String msgEng = helloServiceEng.hello("형태희");
+		
+		System.out.println(msgKor);
+		System.out.println(msgEng);
+	}
+}	
