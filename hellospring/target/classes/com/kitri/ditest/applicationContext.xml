@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id="m1" class ="com.kitri.ditest.MemberDto">
+		<constructor-arg index="1"> 
+			<value>홍길동</value>
+		</constructor-arg>
+		<constructor-arg index="0"> 
+			<value>hong</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="m2" class ="com.kitri.ditest.MemberDto" scope="">
+		<constructor-arg value="홍길동"/> 
+		<constructor-arg value="25" type="int"/>
+	</bean>
+	
+	
+	<bean id="m3" class ="com.kitri.ditest.MemberDto" scope="">
+		<constructor-arg value="형태희"/> 
+		<constructor-arg value="20000000" type="double"/>
+	</bean>
+	
+	<bean id="m4" class="com.kitri.ditest.MemberDto" scope="">
+		<constructor-arg value = "id" index="0"/>
+		<constructor-arg value = "name" index="1"/>
+		<constructor-arg value = "100000" type="double"/>
+		<constructor-arg value = "25" type="int"/>
+	</bean>
+	
+	<bean id="m5" class="com.kitri.ditest.MemberDto" scope="">
+		<constructor-arg value = "id" index="0"/>
+		<constructor-arg value = "name" index="1"/>
+		<constructor-arg value = "100000" type="double"/>
+		<constructor-arg value = "25" type="int"/>
+		<constructor-arg ref="address1"/>
+	</bean>
+	
+	<bean id ="address1" class ="com.kitri.ditest.AddressDto">
+		<constructor-arg value = "zip" />
+		<constructor-arg value = "address" />
+		<constructor-arg value = "detail" />
+	</bean>
+	
+	<bean id="m6" class="com.kitri.ditest.MemberDto" scope="">
+		<property name="id" value="idSet"/>
+		<property name="name" value="nameSet"/>
+		<property name="age" value="30"/>
+		<property name="money" value="10000"/>
+		<property name="addressDto" ref="address2" />
+	</bean>
+	
+	<bean id ="address2" class ="com.kitri.ditest.AddressDto">
+		<property name="zipcode" value="zipSet"/>
+		<property name="address" value="addressSet"/>
+		<property name="addressDetail" value="addressDetail"/>
+	</bean>
+	
+	
+	<bean id="m7" class="com.kitri.ditest.MemberDto" 
+		p:id="java"
+		p:name="이순신"
+		p:age="33"
+		p:money="2536000"
+		p:addressDto-ref="address3"
+	/>
+	
+	<bean id="address3" class= "com.kitri.ditest.AddressDto"
+		p:zipcode="12345"
+		p:address="address"
+		p:addressDetail="detail"
+	/>
+</beans>

@@ -1,4 +1,5 @@
-GitRepositoriesView.GitDirectories=
-GitRepositoriesView.GitDirectories.relative=
+GitRepositoriesView.GitDirectories=E\:\\javadata\\workspace\\spring\\.git;
+GitRepositoriesView.GitDirectories.relative=.git;
+RepositorySearchDialogSearchPath=E\:\\javadata\\workspace\\spring
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1
