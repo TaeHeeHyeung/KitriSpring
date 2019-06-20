@@ -5,7 +5,34 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2019-06-19T21:13:41Z</updated>
+  <updated>2019-06-20T07:38:59Z</updated>
+  <entry>
+    <title>Spring Tool Suite 3.9.9 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2019/06/20/spring-tool-suite-3-9-9-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Martin Lippert</name>
+    </author>
+    <id>tag:spring.io,2019-06-20:3725</id>
+    <updated>2019-06-20T07:38:59Z</updated>
+    <content type="html">&lt;p&gt;Dear Spring Community,&lt;/p&gt;
+&lt;p&gt;I am happy to announce the 3.9.9 maintenance release of the Spring Tool Suite 3 (STS3).&lt;/p&gt;
+&lt;p&gt;Highlights from this release include:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;updated to Eclipse 2019-06 release&lt;/li&gt;
+  &lt;li&gt;mimics the https-preferring XSD schema lookup of the core Spring framework&lt;/li&gt;
+  &lt;li&gt;allows users to use https for Spring schema locations as default&lt;/li&gt;
+  &lt;li&gt;various bug fixes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To download the distributions, please go visit:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Spring Tool Suite 3: &lt;a href="https://spring.io/tools3/sts/all"&gt;&lt;a href="https://spring.io/tools3/sts/all"&gt;https://spring.io/tools3/sts/all&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Detailed new and noteworthy notes can be found here: &lt;a href="https://docs.spring.io/sts/nan/v399/NewAndNoteworthy.html"&gt;STS 3.9.9 New &amp;amp; Noteworthy&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;STS 3.9.9 is presumably the final release of the Spring Tool Suite 3 distribution. At the moment, there are no further updates or maintenance releases planned. For moving forward we recommend to switch to the next generation of the tooling, the &lt;a href="https://spring.io/tools"&gt;Spring Tools 4&lt;/a&gt;. In case of high demand, we might produce additional maintenance update releases of the Spring Tool Suite 3. But in case you are missing important features in the new Spring Tools 4 that prevents you from switching over, let us know and report an enhancement request at &lt;a href="https://github.com/spring-projects/sts4/issues"&gt;https://github.com/spring-projects/sts4/issues&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Enjoy!&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>CVE-2019-11272: Spring Security 4.2.13 Released</title>
     <link rel="alternate" href="https://spring.io/blog/2019/06/19/cve-2019-11272-spring-security-4-2-13-released" />
@@ -1101,90 +1128,6 @@ dependencies {&#xD;
   &lt;li&gt;I love this nice post on &lt;a href="https://dzone.com/articles/apache-rocketmq-how-did-we-lowered-latency"&gt; how the Alibaba team lwered latency for Apache RocketMQ&lt;/a&gt;. Also of note: there&amp;rsquo;s a super-slick integration for Apache RocketMQ in Spring Cloud Alibaba. Check it out!&lt;/li&gt;
   &lt;li&gt;Do &lt;em&gt;not&lt;/em&gt; miss this replay of Olga Maciaszek and Marcin Grzejszczak&amp;rsquo;s Spring I/O talk, &lt;a href="https://twitter.com/springcloud/status/1136290826269679617"&gt;&lt;em&gt;How to live in a post Spring Cloud Netflix world&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Announcing nohttp</title>
-    <link rel="alternate" href="https://spring.io/blog/2019/06/10/announcing-nohttp" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Rob Winch</name>
-    </author>
-    <id>tag:spring.io,2019-06-04:3701</id>
-    <updated>2019-06-10T16:07:46Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;I&amp;#8217;m pleased to announce the &lt;a href="https://github.com/spring-io/nohttp"&gt;nohttp&lt;/a&gt; project, which lets users find, replace, and prevent the usage of &lt;code&gt;http://&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;h1 id="background" class="sect0"&gt;&lt;a class="anchor" href="#background"&gt;&lt;/a&gt;Background&lt;/h1&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Today, &lt;a href="https://github.com/JLLeitschuh"&gt;Jonathan Leitschuh&lt;/a&gt; published a blog titled &lt;a href="https://medium.com/@jonathan.leitschuh/want-to-take-over-the-java-ecosystem-all-you-need-is-a-mitm-1fc329d898fb"&gt;Want to take over the Java ecosystem? All you need is a MITM!&lt;/a&gt;. The blog demonstrates that hundreds of Java libraries are downloading dependencies over HTTP. This opens the projects up to potential &lt;a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack"&gt;MITM (man in the middle) attacks&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Unfortunately, there were multiple Spring projects that were using HTTP to download dependencies. Fortunately, we uncovered no signs of a successful MITM attack. We have also addressed the issue to ensure that no MITM attacks can be made in the future.&lt;/p&gt;
-&lt;/div&gt;
-&lt;h1 id="spring-team-reaction" class="sect0"&gt;&lt;a class="anchor" href="#spring-team-reaction"&gt;&lt;/a&gt;Spring Team Reaction&lt;/h1&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;The Spring Team takes security very seriously. Since discovering that there were Spring projects downloading dependencies over HTTP, we have taken measures to ensure that a MITM attack cannot happen in the future. The most obvious change is to update Maven repository locations to use HTTPS. However, we have taken this much further by switching to using HTTPS (almost) everywhere.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;It is 2019, so, hopefully, it is apparent why we want to remove the usage of HTTP. Using HTTPS is &lt;a href="https://istlsfastyet.com/"&gt;fast&lt;/a&gt;, &lt;a href="https://httpsiseasy.com/"&gt;simple&lt;/a&gt;, and &lt;a href="https://letsencrypt.org/"&gt;available for free&lt;/a&gt;, so there are no excuses for continuing to use HTTP. As developers, it is important that we help the world transition to use HTTPS everywhere (even &lt;a href="https://www.troyhunt.com/heres-why-your-static-website-needs-https/"&gt;static sites need HTTPS&lt;/a&gt;).&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;We certainly are not the only ones trying to eliminate HTTP usage. &lt;a href="https://letsencrypt.org/"&gt;Let&amp;#8217;s Encrypt&lt;/a&gt; was formed to make HTTPS free, automated, and open. &lt;a href="https://blog.chromium.org/2018/05/evolving-chromes-security-indicators.html"&gt;Chrome has updated its UI&lt;/a&gt; to indicate that HTTP is insecure. &lt;a href="https://central.sonatype.org/articles/2019/Apr/30/http-access-to-repo1mavenorg-and-repomavenapacheorg-is-being-deprecated/"&gt;Maven Central has deprecated the use of HTTP&lt;/a&gt;. The list goes on.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="replacing-http-with-https"&gt;&lt;a class="anchor" href="#replacing-http-with-https"&gt;&lt;/a&gt;Replacing HTTP with HTTPS&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;The Spring team has gone to great lengths to update all of our URLs to use HTTPS. This includes everything from our Maven repository URLs, to Apache License, to documentation links. There are some instances where using HTTPS was not possible. For example, some sites we link to do not support HTTPS, XML namespace identifiers must match the identifier in the document, and so on.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="https-xml-locations-through-the-classpath"&gt;&lt;a class="anchor" href="#https-xml-locations-through-the-classpath"&gt;&lt;/a&gt;HTTPS XML Locations through the Classpath&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;In our efforts to eliminate HTTP usage, Spring Framework  &lt;a href="https://github.com/spring-projects/spring-framework/issues/22504"&gt;has been updated&lt;/a&gt; to resolve XML locations that use HTTPS locations through the classpath. Previously, this was only done for URLs that used HTTP. Consider the following XML configuration:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-xml" data-lang="xml"&gt;&amp;lt;?xml version="1.0" encoding="UTF-8"?&amp;gt;
-&amp;lt;beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd"&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;The &lt;code&gt;&lt;a href="https://www.springframework.org/schema/beans/spring-beans.xsd" class="bare"&gt;https://www.springframework.org/schema/beans/spring-beans.xsd&lt;/a&gt;&lt;/code&gt; URL is resolved through the classpath instead of requiring a network connection.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Notice that the XML namespace name, which is an identifier, cannot be changed to use HTTPS. This is not ideal from the perspective of being able to put &lt;a href="https://en.wikipedia.org/wiki/Security_controls"&gt;security controls&lt;/a&gt; in place, but the name is never requested over a network, so it poses little harm to users.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="infrastructure-updates"&gt;&lt;a class="anchor" href="#infrastructure-updates"&gt;&lt;/a&gt;Infrastructure Updates&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;The Spring team has updated all our hosts to ensure that HTTPS is being used. Each site supports HTTPS, redirects to HTTPS, and uses &lt;a href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security"&gt;Strict Transport Security&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;A potential MITM means that our build infrastructure could have been compromised. In response to this, we repaved all of our build infrastructure and rotated all of our credentials.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h1 id="new-security-controls" class="sect0"&gt;&lt;a class="anchor" href="#new-security-controls"&gt;&lt;/a&gt;New Security Controls&lt;/h1&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;While it is important to react to a security incident, it is also important to put &lt;a href="https://en.wikipedia.org/wiki/Security_controls"&gt;security controls&lt;/a&gt; in place to ensure the problem does not happen again.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;We have updated our build boxes to block HTTP traffic to ensure that this cannot happen again. To protect developers and our users, we have created the &lt;a href="https://github.com/spring-io/nohttp"&gt;nohttp&lt;/a&gt;  project. This project can be used to find, replace, and prevent &lt;code&gt;http://&lt;/code&gt; usage while being pragmatic about allowing URLs that cannot change (such as XML namespace names). For additional details, refer to the project¡¯s site.&lt;/p&gt;
-&lt;/div&gt;
-&lt;h1 id="join-us" class="sect0"&gt;&lt;a class="anchor" href="#join-us"&gt;&lt;/a&gt;Join Us&lt;/h1&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;We hope that you will join the revolution to help eliminate the usage of HTTP.&lt;/p&gt;
-&lt;/div&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
