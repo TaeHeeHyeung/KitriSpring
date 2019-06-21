@@ -8,9 +8,9 @@ function deleteMember(){
 	//confirm: return true false
 	//property 
 	if(confirm("정말로 탈퇴?")){
-		document.location.href="${root}/user?act=deletemember";
-		}
+		$(location).attr("href", "${root}/user/delete.kitri");
 	}
+}
 	
 	
 </script>
@@ -18,15 +18,15 @@ function deleteMember(){
 	${userInfo.name }(${userInfo.id })님 로그인을 환영합니다..
 </c:if>
 <br>
-<a href="${root}/user?act=logout"> 로그아웃</a>
-<a href="${root}/user?act=mvmodify"> 정보수정</a>
+<a href="${root}/user/logout.kitri"> 로그아웃</a>
+<a href="${root}/user/modify.kitri"> 정보수정</a>
 <a href="#" onclick="javascript: deleteMember();"> 회원탈퇴</a>
 
-<c:if test="${'java2' == userInfo.id }">
-	<a href="${root}/admin?act=memberlist"> 관리자</a>
+<c:if test="${'hth0893' == userInfo.id }">
+	<a href="${root}/admin/mvmemberlist.kitri"> 관리자</a>
 </c:if>
 <c:if test="${'java2' == null }">
-	<c:redirect url="/user?act=mvlogin"></c:redirect>
+	<c:redirect url="/user/login.kitri"></c:redirect>
 </c:if>
 로그인 후 모든 서비스를 이용할 수 있습니다.
 

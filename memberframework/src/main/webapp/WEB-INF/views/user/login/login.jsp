@@ -21,33 +21,35 @@
 	}
 %>
 <script type="text/javascript">
-	function login() {
-		var id = document.getElementById("id").value;
-		var pass = document.getElementById("pass").value;
-		if (id == "") {
+$(document).ready(function() {
+	$("#loginBtn").click(function() {
+		if($("#id").val().trim().length == 0){
 			alert("아이디를 입력해주세요.");
-		} else if (pass == "") {
-			alert("비밀번호를 입력해주세요.");
-		} else {
-			document.getElementById("loginform").action ="${root}/user";
-			document.getElementById("loginform").submit();
+			return;
+		}else if($("#pass").val().trim().length == 0){
+			alert("비밀번호를 입력");
+			return;
+		}else{
+			console.log("loginBtn");
+			$("#loginform").attr("action", "${root}/user/login.kitri").submit();
 		}
-	}
-	
-	$(document).ready(function() {
-
 	});
-	function mvjoin(){
-		document.location.href="${root}/user?act=mvjoin";
-	}
+	
+	
+	$("#moveRegisterBtn").click(function() {
+		$(location).attr("href", "${root}/user/register.kitri");
+	});
+
+});
+
+
 </script>
 </head>
 <body>
 	<div class="container" align="center">
 		<div class="col-lg-6" align="center">
 			<h2>로그인</h2>
-			<form id="loginform" method="post" action="">
-				<input type="hidden" name="act" value="login">
+			<form id="loginform" method="post" >
 				<div class="form-group" align="right">
 					<label for="">아이디 저장<input type="checkbox" class="form-control" name="idsave" value="idsave" checked="<%=ckid%>"></label>
 				</div>
@@ -58,8 +60,8 @@
 					<label for="">비밀번호</label> <input type="password" class="form-control" id="pass" name="pass" placeholder="">
 				</div>
 				<div class="form-group" align="center">
-					<button type="button" class="btn btn-warning" id="loginBtn" onclick="javascript:login();">로그인</button>
-					<button type="button" class="btn btn-primary" id="moveRegisterBtn" onclick="javascript:mvjoin();">회원가입</button>
+					<button type="button" class="btn btn-warning" id="loginBtn" >로그인</button>
+					<button type="button" class="btn btn-primary" id="moveRegisterBtn" >회원가입</button>
 				</div>
 			</form>
 		</div>

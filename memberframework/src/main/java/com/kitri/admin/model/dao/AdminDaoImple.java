@@ -18,7 +18,7 @@ public class AdminDaoImple implements AdminDao {
 	public List<MemberDetailDto> getMemberList(Map<String, String> map) {
 		SqlSession session = MyBatisConfiguration.getSqlSessionFactory().openSession();
 		try {
-			return session.selectOne(NAME_SPACE + ".getMemberList", map);
+			return session.selectList(NAME_SPACE + ".getMemberList", map);
 		} finally {
 			session.close();
 		}

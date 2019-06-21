@@ -2,50 +2,53 @@
 <%@ include file="/WEB-INF/views/template/header.jsp"%>
 <script type="text/javascript">
 $(document).ready(function() {
-	memberList('',''); 
+	memberList('','' );
+	
 	$("#searchBtn").click(function(){
-		/* var key = $("#key").val();
-		var word = $("#word").val(); 
-		memberList(key,word);
-		*/
-		memberList($("#key").val(), $("#word").val());
+		console.log("searchBtn");
+		memberList($("#key").val(),$("#word").val() );
+		
 	});
 
 });
-	function memberList(key, word){
-		$("#mlist").empty();
-		$.ajax({
-			url:"${root}/admin", //경로 "xml/03.xml" 파일을 만들자 
-			type : "get", //form의 type 비슷하다
-			dataType : "xml",
-			/* data : "act=getmemberlist&key="+$("#key").val()+"&word="+$("#word").val(), */
-			data : "act=getmemberlist&key=" + key + "&word=" + word,
-			timeout : 30000,
-			cache : false,
-			success : function(xml) { // 성공  
-				var member = $(xml).find("member");
-				for (var i = 0; i < member.length; i++) {
-					var id = $(member[i]).find("id").text();
-					var name = $(member[i]).find("name").text();
-					var email = $(member[i]).find("email").text();
-					var tel = $(member[i]).find("tel").text();
-					var address = $(member[i]).find("address").text();
-					var joindate = $(member[i]).find("joindate").text();
 
-					var tr = $("<tr>").attr("class", "table-active");
-					var td1 = $("<td>").html(id);
-					var td2 = $("<td>").html(name);
-					var td3 = $("<td>").html(email);
-					var td4 = $("<td>").html(tel);
-					var td5 = $("<td>").html(address);
-					var td6 = $("<td>").html(joindate);
-					tr.append(td1).append(td2).append(td3).append(td4).append(td5).append(td6);
-					$("#mlist").append(tr);
-				}
+function memberList(key, word){
+	$("#mlist").empty();
+	$.ajax({
+		url:"${root}/admin/memberlist.kitri", //경로 "xml/03.xml" 파일을 만들자 
+		type : "get", //form의 type 비슷하다
+		dataType : "json",
+		/* data : "act=getmemberlist&key="+$("#key").val()+"&word="+$("#word").val(), */
+		data : {
+			"key":key,
+			"word":word
+		},
+		timeout : 30000,
+		cache : false,
+		success : function(json) { // 성공
+			
+			var list = json.memberlist;
+			console.log(list);
+			for(var i=0; i<list.length; i++){
+				var id = list[i].id;
+				var name = list[i].name;
+				var email = list[i].email;
+				var tel = list[i].tel;
+				var address = list[i].address;
+				var joindate =list[i].joindate;
+				var tr = $("<tr>").attr("class", "table-active");
+				var td1 = $("<td>").html(id);
+				var td2 = $("<td>").html(name);
+				var td3 = $("<td>").html(email);
+				var td4 = $("<td>").html(tel);
+				var td5 = $("<td>").html(address);
+				var td6 = $("<td>").html(joindate);
+				tr.append(td1).append(td2).append(td3).append(td4).append(td5).append(td6);
+				$("#mlist").append(tr);
 			}
-		});
-		//[출처] jquery ajax xml json 기초|작성자 겁나잘살거임
-	}
+		}
+	});
+}
 </script>
 <div class="table-responsive-lg">
 	<h2>회원목록</h2>

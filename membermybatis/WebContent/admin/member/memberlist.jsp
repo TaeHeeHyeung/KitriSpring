@@ -2,20 +2,24 @@
 <%@ include file="/template/header.jsp"%>
 <script type="text/javascript">
 $(document).ready(function() {
-	memberList('',''); 
+	console.log("memberlist");
+	$('#form-inline').attr("action","${root}/admin/memberlist.kitri").submit();
+	
 	$("#searchBtn").click(function(){
 		/* var key = $("#key").val();
 		var word = $("#word").val(); 
 		memberList(key,word);
 		*/
-		memberList($("#key").val(), $("#word").val());
+		$('#form-inline').submit();
+		//memberList($("#key").val(), $("#word").val());
 	});
 
 });
 	function memberList(key, word){
 		$("#mlist").empty();
+		$(location).
 		$.ajax({
-			url:"${root}/admin", //경로 "xml/03.xml" 파일을 만들자 
+			url:"${root}/admin.kitri", //경로 "xml/03.xml" 파일을 만들자 
 			type : "get", //form의 type 비슷하다
 			dataType : "xml",
 			/* data : "act=getmemberlist&key="+$("#key").val()+"&word="+$("#word").val(), */

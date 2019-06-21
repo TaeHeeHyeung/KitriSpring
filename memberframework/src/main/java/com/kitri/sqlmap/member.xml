@@ -43,7 +43,7 @@
 	<select id="loginMember" parameterType="map" resultType="memberdto">
 		select name, id, emailid, emaildomain, joindate 
 			from member
-			where id=#{userid} and pass=#{userpwd} 
+			where id=#{id} and pass=#{pass} 
 	</select>
 	
 	
