@@ -29,11 +29,6 @@ function deleteMember(){
 	<c:redirect url="/user?act=mvlogin"></c:redirect>
 </c:if>
 
-
-
-
-
-</br>
 로그인 후 모든 서비스를 이용할 수 있습니다.
 
 <a href=""></a>

@@ -1,8 +1,0 @@
-package com.kitri.hello2;
-
-public interface HellowService {
-	public String hellow(String name) {
-		
-	}
-
-}

@@ -203,7 +203,7 @@ $(document).ready(function() {
 					</div>
 					<input type="text" class="form-control" id="address" name="address"
 						placeholder="" readonly="readonly"> <input type="text"
-						class="form-control" id="address_detail" name="address_detail"
+						class="form-control" id="address_detail" name="addressDetail"
 						placeholder="" readonly="readonly">
 				</div>
 				<div class="form-group" align="center">
