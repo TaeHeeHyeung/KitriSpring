@@ -5,6 +5,8 @@ import java.util.*;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.kitri.member.model.*;
@@ -14,7 +16,7 @@ import com.kitri.sqlmap.MyBatisConfiguration;
 @Repository
 public class MemberDaoImple implements MemberDao {
 	private final String NAME_SPACE ="com.kitri.member.model.dao.MemberDao";
-
+	Logger logger = LoggerFactory.getLogger(MemberDaoImple.class);
 	@Override
 	public int idCheck(String id) {
 		SqlSession session = MyBatisConfiguration.getSqlSessionFactory().openSession();
@@ -58,10 +60,10 @@ public class MemberDaoImple implements MemberDao {
 	}
 
 	@Override
-	public MemberDetailDto getMember(int memberid) {
+	public MemberDetailDto getMember(String id) {
 		SqlSession session =  MyBatisConfiguration.getSqlSessionFactory().openSession();
 		try {
-			return session.selectOne(NAME_SPACE+".getMember", memberid);
+			return session.selectOne(NAME_SPACE+".getMember", id);
 		}finally {
 			session.close();
 		}	
@@ -73,8 +75,20 @@ public class MemberDaoImple implements MemberDao {
 	}
 
 	@Override
-	public int deleteMember(int memberid) {
-		return 0;
+	public int deleteMember(String memberid) {
+		SqlSession session = MyBatisConfiguration.getSqlSessionFactory().openSession();
+		int result =0;
+		try {
+			logger.info("memberid :"+memberid);
+			result +=session.delete(NAME_SPACE+".deleteMember_Detail", memberid);
+			result +=session.delete(NAME_SPACE+".deleteMember", memberid);
+			session.commit();
+			return result;
+		}finally {
+			session.close();
+		}	
+		
+		
 	}
 
 	

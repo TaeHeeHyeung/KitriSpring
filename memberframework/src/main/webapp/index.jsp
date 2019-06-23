@@ -14,6 +14,8 @@
 		<h3>Spring & Mybatis 를 이용한 회원관리</h3>
 		<a href="${root}/user/register.kitri"> 회원가입</a> 
 		<a href="${root}/user/login.kitri"> 로그인</a>
+		<a href="${root}/user/modify.kitri"> 정보수정</a>
+				
 	</div>
 </body>
 </html>

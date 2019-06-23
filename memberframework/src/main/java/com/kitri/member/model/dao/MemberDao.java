@@ -14,8 +14,8 @@ public interface MemberDao {
 	int registerMember(MemberDetailDto detailDto);
 	MemberDto loginMember(Map<String,String> map);
 	
-	MemberDetailDto getMember(int memberid);
+	MemberDetailDto getMember(String memberid);
 	int modifyMember(MemberDetailDto detailDto);
-	int deleteMember(int memberid);
+	int deleteMember(String memberid);
 }
 

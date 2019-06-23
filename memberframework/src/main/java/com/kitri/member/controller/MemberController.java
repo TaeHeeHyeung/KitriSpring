@@ -8,10 +8,8 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kitri.member.model.MemberDetailDto;
 import com.kitri.member.model.MemberDto;
@@ -37,6 +35,20 @@ public class MemberController {
 //	@Qualifier("Impl1")
 	private MemberService memberService;
 
+	@RequestMapping(value = "/delete.kitri", method = RequestMethod.GET)
+	@ResponseBody
+	public String delete(@ModelAttribute("userInfo") MemberDto memberDto) {
+		int result = memberService.deleteMember(memberDto.getId());
+		return "{result: "+result +"}";
+	}
+	//회원세션이 존재하면 회원정보 변경페이지이다.
+	@RequestMapping(value = "/modify.kitri", method = RequestMethod.GET)
+	public String modify(@ModelAttribute("userInfo") MemberDto memberDto,HttpSession session) {
+		logger.info("ModelAttribute: "+memberDto.toString());
+		logger.info("Session: "+((MemberDto)session.getAttribute("userInfo")).toString());
+		return "user/member/member";
+	}
+	
 	@RequestMapping(value = "/register.kitri", method = RequestMethod.GET)
 	public String register() {
 		return "user/member/member";
@@ -108,7 +120,7 @@ public class MemberController {
 //	}
 
 	@RequestMapping(value = "/logout.kitri")
-	public String logout(@ModelAttribute("userInfo") MemberDto memberDto, SessionStatus sessionStatus) {// MemberDto memberDto
+	public String logout(@ModelAttribute(name="userInfo") MemberDto memberDto, SessionStatus sessionStatus) {// MemberDto memberDto
 		sessionStatus.setComplete();
 		return "redirect:/index.jsp";
 
