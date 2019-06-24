@@ -73,8 +73,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int deleteMember(int memberid) {
-		return 0;
+	public int deleteMember(String memberid) {
+		return memberDao.deleteMember(memberid);
 	}
 
 }
