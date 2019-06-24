@@ -3,22 +3,22 @@
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 
 <%
-// 	Cookie[] cookies = request.getCookies();
-// 	String svid = "";
-// 	String ckid = "";
+	Cookie[] cookies = request.getCookies();
+	String svid = "";
+	String ckid = "";
 	
-// 	if (cookies != null) {
-// 		for (Cookie c : cookies) {
-// 			if ("kid_inf".equals(c.getName())) {
-// 				svid = c.getValue();
-// 				ckid = "checked";
-// 				out.print(c.getValue());
-// 				out.print(c.getName());
-// 				out.print(ckid);			
-// 				break;
-// 			}
-// 		}
-// 	}
+	if (cookies != null) {
+		for (Cookie c : cookies) {
+			if ("kid_inf".equals(c.getName())) {
+				svid = c.getValue();
+				ckid = "checked";
+				out.print(c.getValue());
+				out.print(c.getName());
+				out.print(ckid);			
+				break;
+			}
+		}
+	}
 %>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -51,10 +51,10 @@ $(document).ready(function() {
 			<h2>로그인</h2>
 			<form id="loginform" method="post" >
 				<div class="form-group" align="right">
-					<label for="">아이디 저장<input type="checkbox" class="form-control" name="idsave" value="idsave" checked="checked"></label>
+					<label for="">아이디 저장<input type="checkbox" class="form-control" name="idsave" value="idsave" checked="<%=ckid%>"></label>
 				</div>
 				<div class="form-group" align="left">
-					<label for="">아이디</label> <input type="text" class="form-control" id="id" name="id" placeholder="" value="hth0893">
+					<label for="">아이디</label> <input type="text" class="form-control" id="id" name="id" placeholder="" value="<%=svid%>">
 				</div>
 				<div class="form-group" align="left">
 					<label for="">비밀번호</label> <input type="password" class="form-control" id="pass" name="pass" placeholder="">

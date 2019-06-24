@@ -15,4 +15,6 @@ public interface MemberService {
 	MemberDetailDto getMember(int memberid);
 	int modifyMember(MemberDetailDto detailDto);
 	int deleteMember(String memberid);
+	
+
 }
