@@ -16,6 +16,6 @@ public interface MemberDao {
 	
 	MemberDetailDto getMember(int memberid);
 	int modifyMember(MemberDetailDto detailDto);
-	int deleteMember(int memberid);
+	int deleteMember(String memberid);
 }
 

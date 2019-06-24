@@ -73,7 +73,7 @@ public class MemberDaoImple implements MemberDao {
 	}
 
 	@Override
-	public int deleteMember(int memberid) {
+	public int deleteMember(String memberid) {
 		return 0;
 	}
 
