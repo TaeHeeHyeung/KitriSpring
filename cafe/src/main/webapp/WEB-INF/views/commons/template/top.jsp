@@ -11,8 +11,7 @@
 <meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="${root}/resources/css/skin_purple.css" type="text/css">
+<link rel="stylesheet" href="${root}/resources/css/board/skin_purple.css" type="text/css">
 
 </head>
 <body>
-

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file = "/WEB-INF/views/commons/template/top.jsp" %>
+
 <style>
 .menulist {width:300px;}
 .category{
@@ -46,6 +47,7 @@ $(document).ready(function() {
 	</c:if>
 	
 	<a href="${root}/${board.control}/write?bcode=${board.bcode}&pg=1&key=&word=">
+<%-- 	<a href="${root}/${board.control}/list?bcode=${board.bcode}&pg=1&key=&word="> --%>
 		${board.bname}
 	</a>
 	<c:if test= "${i.index < boardmenu.size() - 1 }" >

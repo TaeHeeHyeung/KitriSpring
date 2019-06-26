@@ -29,9 +29,9 @@ public class BoardAdminController {
 		mav.addObject("boardmenu",list);
 		mav.setViewName("admin/boardmenu");
 		
-		logger.info("cname:"+list.get(1).getCname());
-		logger.info("bname:"+list.get(1).getBname());
-		logger.info("listsize :"+list.size());
+//		logger.info("cname:"+list.get(1).getCname());
+//		logger.info("bname:"+list.get(1).getBname());
+//		logger.info("listsize :"+list.size());
 		return mav;
 	}
 

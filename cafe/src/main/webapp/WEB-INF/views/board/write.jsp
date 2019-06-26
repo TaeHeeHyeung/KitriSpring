@@ -75,10 +75,10 @@
 	<tr>
 		<td align="center"><a href="javascript:writeArticle();"><img
 			src="${root}/img/board/btn_register.gif" width="42" height="21"
-			border="0" name="register" value="" alt="등록"></a> <a
-			href="javascript:history.back();"><img
-			src="${root}/img/board/b_cancel.gif" width="42" height="21"
-			border="0" name="cencel" value="" alt="취소"></a></td>
+			border="0" name="register" value="" alt="등록"></a>
+			 <a href="javascript:history.back();">
+			 <img src="${root}/img/board/b_cancel.gif" width="42" height="21" border="0" name="cencel" value="" alt="취소"></a>
+			 </td>
 	</tr>
 </table>
 </form>
