@@ -5,7 +5,6 @@
 
 <configuration>
 	<typeAliases>
-	
 		<typeAlias alias="categoryDto" type="com.kitri.cafe.admin.board.model.CategoryDto"/>
 		<typeAlias alias="boardTypeDto" type="com.kitri.cafe.admin.board.model.BoardTypeDto"/>
 		<typeAlias alias="boardListDto" type="com.kitri.cafe.admin.board.model.BoardListDto"/>
@@ -14,7 +13,5 @@
 		<typeAlias alias="boardDto" type="com.kitri.cafe.board.model.BoardDto"/>
 		<typeAlias alias="memoDto" type="com.kitri.cafe.board.model.MemoDto"/>
 		<typeAlias alias="reboardDto" type="com.kitri.cafe.board.model.ReboardDto"/>
-				
 	</typeAliases>
-
 </configuration>
