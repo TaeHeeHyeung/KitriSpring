@@ -7,6 +7,7 @@ public class ReboardDto extends BoardDto {
 	private int step;
 	private int pseq;
 	private int reply;
+	
 	public int getResq() {
 		return resq;
 	}

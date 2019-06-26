@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kitri.cafe.board.model.ReboardDto;
 import com.kitri.cafe.board.service.BbsService;
 import com.kitri.cafe.board.service.ReboardService;
 
@@ -28,6 +29,16 @@ public class ReboardController {
 	@RequestMapping(value ="/write", method= RequestMethod.GET)
 	public void write(@RequestParam Map<String, String> parameter ,Model model) {
 		logger.debug("write");
-		model.addAttribute("parameter",parameter);
+		model.addAttribute("parameter", parameter);
 	}
+	
+	@RequestMapping(value ="/write", method= RequestMethod.POST)
+	public String write(ReboardDto reBoardDto, @RequestParam Map<String, String> parameter ,Model model) {
+		logger.debug(reBoardDto.toString());
+		model.addAttribute("parameter", parameter);
+		
+		return "";
+	}
+	
 }
+

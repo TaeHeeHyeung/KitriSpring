@@ -5,7 +5,39 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2019-06-21T18:00:08Z</updated>
+  <updated>2019-06-25T19:06:06Z</updated>
+  <entry>
+    <title>This Week in Spring - June 25, 2019</title>
+    <link rel="alternate" href="https://spring.io/blog/2019/06/25/this-week-in-spring-june-25-2019" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2019-06-25:3728</id>
+    <updated>2019-06-25T19:06:06Z</updated>
+    <content type="html">&lt;p&gt;Hi Spring fans! Welcome to another installment of This Week in Spring. Today I&amp;rsquo;m in beautiful Tampla, Fl, where I got to talk to a wonderful Pivotal customer today. Now I&amp;rsquo;m at TPA airport preparing to board for Paris, France, for JHipsterConf. &lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;ve got a ton to cover so let&amp;rsquo;s get to it! &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;I just want to remind people that the majority of the Spring team is sponsored by the company Pivotal, an open-source powerhouse that sponsors among other things Spring, Cloud Foundry, a Kubernetes distribution, RabbitMQ, Jasmine, Apache Geode, Apache Tomcat, and a ton of other things. We&amp;rsquo;ve also got a deep bench in building software development tools including things like Pivotal Tracker. Want &lt;a href="https://pivotal.io/why-pivotal"&gt;to learn more&lt;/a&gt;?&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2019/06/21/spring-tools-4-3-0-released"&gt;Spring Tools 4.3.0 released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2019/06/21/a-bootiful-podcast-ibm-s-pratik-patel-on-java-functions-as-a-service-cloud-infrastructure-spring-and-devnexus"&gt;A Bootiful Podcast: IBM&amp;rsquo;s Pratik Patel on Java, Functions-as-a-service, cloud infrastructure, Spring and Devnexus&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2019/06/20/spring-tool-suite-3-9-9-released"&gt;Spring Tool Suite 3.9.9 released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2019/06/19/cve-2019-11272-spring-security-4-2-13-released"&gt;CVE-2019-11272: Spring Security 4.2.13 Released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2019/06/19/spring-tips-distributed-locks-with-spring-integration"&gt;Spring Tips: Distributed Locks with Spring Integration&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2019/06/19/java-cfenv-1-1-ga-released"&gt;Java CFEnv 1.1 GA Released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2019/06/19/spring-boot-2-2-0-m4"&gt;Spring Boot 2.2.0.M4&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2019/06/19/spring-boot-2-1-6-released"&gt;Spring Boot 2.1.6 released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;I love this article by Pivotal&amp;rsquo;s Brian McClain and Ben Wilcock &lt;a href="https://content.pivotal.io/practitioners/getting-started-with-spring-cloud-gateway-3"&gt;on using Spring Cloud Gateway&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.openservicebrokerapi.org/blog/2019/06/21/announcing-open-service-broker-api-v2-15"&gt;Announcing the Open Service Broker API, v 2.15&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;This is pretty interesting: it&amp;rsquo;s a sample demonstrating Atomikos&amp;rsquo; Logcloud integration with the Spring Boot Atomikos JTA starter. &lt;a href="https://github.com/atomikos/spring-boot-sample-jta-atomikos-logcloud"&gt;It&amp;rsquo;s a project showing how easy it is to do XA with clustered, cloud-native transaction logging and recovery.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Wow! I can&amp;rsquo;t believe I almost missed this one. It&amp;rsquo;s an awesome post by Jagdish Mirani on using Spring for Apache Geode. Apache Geode is a distributed data-grid sort of like Hazelcast, Oracle Coherence, etc. It is the open-source distribution of what we sell as Pivotal Gemfire. It&amp;rsquo;s also got every thing you could want: distribution, high speed replication, continuous queries, WAN gateways, etc.&lt;/li&gt;
+  &lt;li&gt;Nice post about &lt;a href="https://thenewstack.io/what-home-depot-can-teach-devops-and-anyone-else/"&gt;how Home Depot can teach DevOops (and everyone else)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Running Cypress tests with TestContainers for a &lt;a href="https://wimdeblauwe.wordpress.com/2019/06/15/running-cypress-tests-with-testcontainers-for-a-spring-boot-with-thymeleaf-application/"&gt;Spring Boot with Thymeleaf application &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Woohoo! Check out the latest release by &lt;a href="https://spring.io/blog/2019/06/18/spring-session-corn-m2-and-spring-session-bean-sr6-released"&gt;Vedran Pavi? announcing Spring Session Corn-M2 and Spring Session Bean-SR6 Released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://pivotal.io/pivotal-spring-runtime"&gt;Want support for OpenJDK, Spring, and Apache Tomcat?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Tools 4.3.0 released</title>
     <link rel="alternate" href="https://spring.io/blog/2019/06/21/spring-tools-4-3-0-released" />
@@ -1088,20 +1120,6 @@ dependencies {&#xD;
 &lt;p&gt;The third milestone of Spring Framework 5.2 includes &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.2.0.M3"&gt;50 fixes and improvements&lt;/a&gt; while Spring Framework &lt;code&gt;5.1.8&lt;/code&gt; includes &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.1.8.RELEASE"&gt;31 fixes and selected improvements&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;If you want to give the milestone a try, you can boostrap a new application on &lt;a href="https://start.spring.io"&gt;start.spring.io&lt;/a&gt; once Spring Boot &lt;code&gt;2.2.0.M4&lt;/code&gt; is released early next week.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/5.1.8.RELEASE/spring-framework-reference"&gt;Documentation&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Tips: Spring's Support for Kotlin Coroutines</title>
-    <link rel="alternate" href="https://spring.io/blog/2019/06/12/spring-tips-spring-s-support-for-kotlin-coroutines" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2019-06-12:3709</id>
-    <updated>2019-06-12T20:45:05Z</updated>
-    <content type="html">&lt;p&gt;Hi Spring fans! In this week&amp;rsquo;s installment Josh Long (@starbuxman) looks at Kotlin&amp;rsquo;s new support for coroutines (&amp;ldquo;Koroutines&amp;rdquo;?) and the rich integrations in Spring.&lt;/p&gt;
-&lt;p&gt;speaker: &lt;a href="http://twitter.com/Starbuxman"&gt;Josh Long (@starbuxman) &lt;/a&gt;&lt;/p&gt;
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/3xu5xttCrVk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
