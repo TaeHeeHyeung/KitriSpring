@@ -36,6 +36,7 @@
 			console.log('token' + token);
 			//naver_id_login.getProfileData('nickname');
 			//alert(naver_id_login.getProfileData('age'));
+			
 		}
 	</script>
 </body>

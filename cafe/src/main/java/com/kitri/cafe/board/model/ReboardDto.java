@@ -7,6 +7,12 @@ public class ReboardDto extends BoardDto {
 	private int step;
 	private int pseq;
 	private int reply;
+	
+	@Override
+	public String toString() {
+		return "ReboardDto [resq=" + resq + ", ref=" + ref + ", lev=" + lev + ", step=" + step + ", pseq=" + pseq
+				+ ", reply=" + reply + "]";
+	}
 	public int getResq() {
 		return resq;
 	}

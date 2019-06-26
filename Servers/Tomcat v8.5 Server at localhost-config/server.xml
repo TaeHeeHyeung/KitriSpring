@@ -105,7 +105,7 @@
 				<Context docBase="singletrace" path="/singletrace" reloadable="true" source="org.eclipse.jst.jee.server:singletrace"/>
 				<Context docBase="memberframework" path="/member" reloadable="true" source="org.eclipse.jst.jee.server:memberframework"/>
 				<Context docBase="hellospringmvc" path="/hellospringmvc" reloadable="true" source="org.eclipse.jst.jee.server:hellospringmvc"/>
-			<Context docBase="logintest" path="/login" reloadable="true" source="org.eclipse.jst.jee.server:logintest"/><Context docBase="single" path="/single" reloadable="true" source="org.eclipse.jst.jee.server:single"/></Host>
+			<Context docBase="logintest" path="/login" reloadable="true" source="org.eclipse.jst.jee.server:logintest"/><Context docBase="cafe" path="/cafe" reloadable="true" source="org.eclipse.jst.jee.server:cafe"/><Context docBase="single" path="/single" reloadable="true" source="org.eclipse.jst.jee.server:single"/></Host>
 		</Engine>
 	</Service>
 </Server>

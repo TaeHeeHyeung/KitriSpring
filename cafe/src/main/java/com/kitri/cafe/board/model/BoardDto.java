@@ -12,11 +12,16 @@ public class BoardDto {
 	private String id;
 	private String email;
 	private String subject;
-	private CLOB content;
-	private int hint;
-	private String logTime;
+	private String content;
+	private int hit;
+	private String logtime;
 	private int bcode;
 	
+	@Override
+	public String toString() {
+		return "BoardDto [seq=" + seq + ", name=" + name + ", id=" + id + ", email=" + email + ", subject=" + subject
+				+ ", content=" + content + ", hit=" + hit + ", logtime=" + logtime + ", bcode=" + bcode + "]";
+	}
 	public int getSeq() {
 		return seq;
 	}
@@ -47,24 +52,24 @@ public class BoardDto {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	public CLOB getContent() {
+	public String getContent() {
 		return content;
 	}
-	public void setContent(CLOB content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getHint() {
-		return hint;
+	public int getHit() {
+		return hit;
 	}
-	public void setHint(int hint) {
-		this.hint = hint;
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
 
-	public String getLogTime() {
-		return logTime;
+	public String getLogtime() {
+		return logtime;
 	}
-	public void setLogTime(String logTime) {
-		this.logTime = logTime;
+	public void setLogtime(String logtime) {
+		this.logtime = logtime;
 	}
 	public int getBcode() {
 		return bcode;

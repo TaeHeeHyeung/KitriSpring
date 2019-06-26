@@ -3,10 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<!-- Root Context: defines shared resources visible to all other web components -->
-		
-	
-		
+	<!-- Root Context: defines shared resources visible to all other web components -->		
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
 		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>
 		<property name="url" value="jdbc:oracle:thin:@192.168.14.52:1521:orcl"/>
@@ -21,6 +18,7 @@
 			<list>
 			 	<value>/WEB-INF/mybatis/mapper_admin_board.xml</value>
 			 	<value>/WEB-INF/mybatis/mapper_reboard.xml</value>
+			 	<value>/WEB-INF/mybatis/mapper_common.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -29,3 +27,4 @@
 		<constructor-arg ref="sqlSessionFactoryBean"/>
 	</bean>
 </beans>
+

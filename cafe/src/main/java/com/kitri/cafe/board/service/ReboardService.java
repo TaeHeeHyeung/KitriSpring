@@ -12,3 +12,4 @@ public interface ReboardService {
 	int modifyArticle(ReboardDto reboardDto);
 	void deleteArticle(int seq);
 }
+ 
