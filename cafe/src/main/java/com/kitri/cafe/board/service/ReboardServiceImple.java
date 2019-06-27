@@ -8,9 +8,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kitri.cafe.board.dao.ReboardDao;
 import com.kitri.cafe.board.model.ReboardDto;
+import com.kitri.cafe.common.dao.CommonDao;
 import com.kitri.cafe.util.CafeConstance;
 import com.kitri.cafe.util.NumberCheck;
 
@@ -41,8 +43,11 @@ public class ReboardServiceImple implements ReboardService {
 		return sqlSession.getMapper(ReboardDao.class).listArticle(parameter);
 	}
 
+	//transactional -> rootcontext transactionmanager
 	@Override
+	@Transactional 
 	public ReboardDto viewArticle(int seq) {
+		sqlSession.getMapper(CommonDao.class).updateHit(seq);
 	//에디터 쓰게되면 필요 없게된다.
 		ReboardDto reboardDto = sqlSession.getMapper(ReboardDao.class).viewArticle(seq);
 		String content = reboardDto.getContent().replace("\n", "<br>");

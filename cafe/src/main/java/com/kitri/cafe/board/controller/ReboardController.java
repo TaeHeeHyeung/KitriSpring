@@ -3,6 +3,7 @@ package com.kitri.cafe.board.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -20,6 +21,7 @@ import com.kitri.cafe.board.service.BbsService;
 import com.kitri.cafe.board.service.ReboardService;
 import com.kitri.cafe.common.service.CommonService;
 import com.kitri.cafe.member.model.MemberDto;
+import com.kitri.cafe.util.PageNavigation;
 
 
 
@@ -36,11 +38,16 @@ public class ReboardController {
 	private ReboardService reboardService;
 	
 	@RequestMapping(value ="/list", method= RequestMethod.GET)
-	public void list (@RequestParam Map<String, String> parameter ,Model model) {
+	public void list (@RequestParam Map<String, String> parameter, Model model, HttpServletRequest request) {
 		System.out.println(parameter.toString());
 		List<ReboardDto> list = reboardService.listArticle(parameter);
+		PageNavigation pageNavigation = commonService.getPageNavigation(parameter);
+		pageNavigation.setRoot(request.getContextPath());
+		pageNavigation.makeNavigator();
+		
 		model.addAttribute("parameter", parameter);
 		model.addAttribute("articleList", list);
+		model.addAttribute("navigator",pageNavigation );
 		
 	}
 	
@@ -58,7 +65,6 @@ public class ReboardController {
 			path= "reboard/view";
 		}else {
 			path= "redirect:/index.jsp"; 
-			
 		} 
 		return path;
 	}//end view

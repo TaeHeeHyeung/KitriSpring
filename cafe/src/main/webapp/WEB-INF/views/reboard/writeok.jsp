@@ -10,11 +10,14 @@ $(document).ready(function() {
 		$('#key').val("${key}");
 		$('#word').val("${word}");
 		$('#seq').val("${seq}");
-		$('#commonForm').attr("method", "GET");
-		$('#commonForm').attr("action", "${root}/reboard/view").submit();
+		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/view").submit();
 	});
 	$("#listBtn").click(function() {
-		
+		$('#bcode').val("${bocde}");
+		$('#pg').val("1");
+		$('#key').val("");
+		$('#word').val("");
+		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/list").submit();
 	});
 });
 </script>

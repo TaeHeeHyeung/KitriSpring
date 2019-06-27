@@ -3,8 +3,6 @@
     pageEncoding="UTF-8"%>
 
 <%
-
-
 MemberDto memberDto = new MemberDto();
 memberDto.setId("hth0893");
 memberDto.setName("형태희");

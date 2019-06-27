@@ -7,18 +7,33 @@
 <script>
 $(document).ready(function() {
 	$(".moveWriteBtn").click(function() {
-		$('#bcode').val("${bocde}");
+		$('#bcode').val("${bcode}");
 		$('#pg').val("1");
 		$('#key').val("");
 		$('#word').val("");
 		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/write").submit();
 	});
-	$(".moveReplyBtn").click(function() {
-		
+	
+	$("#moveReplyBtn").click(function() {
+	
+	});
+	
+	$(".firstListBtn").click(function() {
+		$('#bcode').val("${bcode}");
+		$('#pg').val("1");
+		$('#key').val("");
+		$('#word').val("");
+		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/list").submit();
+	});
+	
+	$(".listBtn").click(function() {
+		$('#bcode').val("${bcode}");
+		$('#pg').val("${pg}");
+		$('#key').val("${key}");
+		$('#word').val("${word}");
+		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/list").submit();
 	});
 });
-
-
 </script>
 
 <!-- title -->
@@ -40,16 +55,24 @@ $(document).ready(function() {
 	<form name="bbsForm" id="bbsbbs" method="post">
 	<input type="hidden" name="" value="">
 	<tr>
-		<td valign="bottom" nowrap><img
-			src="${root}/img/board/btn_write_01.gif" width="64" height="22"
-			border="0" align="absmiddle" alt="글쓰기" class="moveWriteBtn"><img
-			src="${root}/img/board/btn_reply.gif" width="40" height="22"
+		<td valign="bottom" nowrap>
+			<img src="${root}/img/board/btn_write_01.gif" width="64" height="22"
+			border="0" align="absmiddle" alt="글쓰기" class="moveWriteBtn">
+			<img src="${root}/img/board/btn_reply.gif" width="40" height="22"
 			border="0" align="absmiddle" alt="답글" class="moveReplyBtn">
+			<c:if test="${userInfo.id == article.id} ">
+			    <img src="${root}/img/board/btn_modify.gif" 
+				border="0" align="absmiddle" alt="글수정" class="moveModifyBtn">
+				<img src="${root}/img/board/btn_delete.gif" 
+				border="0" align="absmiddle" alt="글삭제" class="moveDeleteBtn">
+			</c:if>
 		</td>
 		<td valign="bottom" width="100%" style="padding-left: 4px"></td>
-		<td align="right" nowrap valign="bottom"><a
-			href="javascript:goPage(1);">최신목록</a> <font color="#c5c5c5">|</font>
-		<a href="javascript:goPage();">목록</a> <font color="#c5c5c5">|</font>
+		<td align="right" nowrap valign="bottom">
+		<label class = "firstlistBtn">최신목록</label> 
+			<font color="#c5c5c5">|</font>
+		<label class ="listBtn">목록</label> 
+			<font color="#c5c5c5">|</font>
 
 		<a href="javascript:goBbsRead();"><img
 			src="${root}/img/board/icon_up.gif" border="0" align="absmiddle"
@@ -136,11 +159,13 @@ $(document).ready(function() {
 			target="new"><img src="${root}/img/board/btn_print.gif"
 			width="30" height="18" border="0" align="absmiddle" alt="인쇄"></a></td>
 
-		<td align="right" nowrap><a href="javascript:goPage(1);">최신목록</a>
-		<font color="#c5c5c5">|</font> <a href="javascript:goPage();">목록</a>
-		<font color="#c5c5c5">|</font> <a href="javascript:goBbsRead();"><img
-			src="${root}/img/board/icon_up.gif" border="0" align="absmiddle"
-			hspace="3">윗글</a> <font color="#c5c5c5">|</font> <a
+		<td align="right" nowrap>
+			<label class = "firstlistBtn">최신목록</label> 
+			<font color="#c5c5c5">|</font>
+			<label class ="listBtn">목록</label> 
+			<font color="#c5c5c5">|</font>
+			 <a href="javascript:goBbsRead();">
+			 <img src="${root}/img/board/icon_up.gif" border="0" align="absmiddle" hspace="3">윗글</a> <font color="#c5c5c5">|</font> <a
 			href="javascript:goBbsRead();">아랫글<img
 			src="${root}/img/board/icon_down.gif" border="0" align="absmiddle"
 			hspace="3"></a></td>
