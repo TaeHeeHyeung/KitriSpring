@@ -131,7 +131,7 @@ $(document).ready(function() {
      
      </td-->
 		<td style="word-break: break-all;">
-		<c:forEach  begin="1" end="${article.step }">
+		<c:forEach  begin="1" end="${article.lev }">
 			<img src = "${root}/img/board/blank.gif" width="15" height="1">
 		</c:forEach>
 			

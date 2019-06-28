@@ -59,11 +59,7 @@ public class ReboardServiceImpl implements ReboardService {
 	@Override
 	@Transactional 
 	public ReboardDto getArticle(int seq) {
-		ReboardDto reboardDto = sqlSession.getMapper(ReboardDao.class).viewArticle(seq);
-		String content = reboardDto.getContent().replace("\n", "<br>");
-		reboardDto.setContent(content);
-
-		return reboardDto;
+		return sqlSession.getMapper(ReboardDao.class).viewArticle(seq);
 	} 
 	
 	
