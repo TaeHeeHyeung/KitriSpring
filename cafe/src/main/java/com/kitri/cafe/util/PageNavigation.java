@@ -77,7 +77,7 @@ public class PageNavigation {
 		tmpNavigator.append("  <td style='padding: 0 5 0 5'>\n");
 		tmpNavigator.append("   <table cellpadding='0' cellspacing='0' border='0'>\n");
 		tmpNavigator.append("    <tr>\n");
-		tmpNavigator.append("     <td width='1' nowrap><img src='" + root + "/img/board/blank.gif' width='2' height='1'");
+		tmpNavigator.append("     <td width='1' nowrap><img src='" + root + "/img/board/blank.gif' width='4' height='1'");
 		tmpNavigator.append(" height='11' border='0' align='absmiddle'><br>");
 		tmpNavigator.append("     </td>\n");
 		
@@ -90,11 +90,11 @@ public class PageNavigation {
 		for (int i = startPage; i <= endPage; i++) {
 			if (pageNo == i) {
 				tmpNavigator.append("     <td style='padding:0 7 0 7;' nowrap><font class='text_acc_02'><b>" + i + "</b></font></td>\n");
-				tmpNavigator.append("     <td width='1' nowrap><img src='" + root + "/img/board/blank.gif' width='2' height='1'");
+				tmpNavigator.append("     <td width='1' nowrap><img src='" + root + "/img/board/blank.gif' width='4' height='1'");
 				tmpNavigator.append(" height='11' border='0' align='absmiddle'><br>\n");
 			} else {
 				tmpNavigator.append("     <td style='padding:0 7 0 7;' nowrap><label class='moveListBtn' data-pg='"+i+"'>" + i + "</label></td>\n");
-				tmpNavigator.append("     <td width='1' nowrap><img src='" + root + "/img/board/blank.gif' width='2' height='1'");
+				tmpNavigator.append("     <td width='1' nowrap><img src='" + root + "/img/board/blank.gif' width='4' height='1'");
 				tmpNavigator.append(" height='11' border='0' align='absmiddle'><br>\n");
 			}
 		}

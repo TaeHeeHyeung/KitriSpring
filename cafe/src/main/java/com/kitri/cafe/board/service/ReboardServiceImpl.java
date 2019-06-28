@@ -17,9 +17,9 @@ import com.kitri.cafe.util.CafeConstance;
 import com.kitri.cafe.util.NumberCheck;
 
 @Service
-public class ReboardServiceImple implements ReboardService {
+public class ReboardServiceImpl implements ReboardService {
 
-	Logger logger = LoggerFactory.getLogger(ReboardServiceImple.class);
+	Logger logger = LoggerFactory.getLogger(ReboardServiceImpl.class);
 	
 	@Autowired
 	private SqlSession sqlSession;
@@ -48,15 +48,25 @@ public class ReboardServiceImple implements ReboardService {
 	@Transactional 
 	public ReboardDto viewArticle(int seq) {
 		sqlSession.getMapper(CommonDao.class).updateHit(seq);
-	//에디터 쓰게되면 필요 없게된다.
+		//에디터 쓰게되면 필요 없게된다.
 		ReboardDto reboardDto = sqlSession.getMapper(ReboardDao.class).viewArticle(seq);
 		String content = reboardDto.getContent().replace("\n", "<br>");
 		reboardDto.setContent(content);
 		logger.debug(content);
 //		System.out.println(content);
 		return reboardDto;
-		
 	} 
+	@Override
+	@Transactional 
+	public ReboardDto getArticle(int seq) {
+		ReboardDto reboardDto = sqlSession.getMapper(ReboardDao.class).viewArticle(seq);
+		String content = reboardDto.getContent().replace("\n", "<br>");
+		reboardDto.setContent(content);
+
+		return reboardDto;
+	} 
+	
+	
 
 	@Override
 	public int modifyArticle(ReboardDto reboardDto) {
@@ -68,6 +78,19 @@ public class ReboardServiceImple implements ReboardService {
 	public void deleteArticle(int seq) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	@Transactional
+	public int replyArticle(ReboardDto reboardDto) {
+		ReboardDao reboardDao = sqlSession.getMapper(ReboardDao.class);
+		reboardDao.updateStep(reboardDto);
+//		System.out.println("ReboardServiceImple: replyupdateStep ok");
+		reboardDao.replyArticle(reboardDto);
+//		System.out.println("ReboardServiceImple: replyArticle ok");
+		reboardDao.updateReply(reboardDto.getPseq());
+//		System.out.println("ReboardServiceImple: updateReply ok");
+		return reboardDto.getSeq();
 	}
 
 }

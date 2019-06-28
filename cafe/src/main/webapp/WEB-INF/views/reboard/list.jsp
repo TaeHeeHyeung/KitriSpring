@@ -15,9 +15,7 @@ $(document).ready(function() {
 		$('#word').val("");
 		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/write").submit();
 	});
-	$(".moveReplyBtn").click(function() {
-		
-	});
+
 	$(".viewBtn").click(function() {
 		console.log("viewBtnClicked");
 		$('#bcode').val("${bcode}");
@@ -85,8 +83,8 @@ $(document).ready(function() {
 			src="${root}/img/board/btn_write_01.gif" width="64" height="22"
 			border="0" align="absmiddle" alt="글쓰기"></td>
 		<td width="100%" style="padding-left: 6px" valign="bottom">새글 <b><font
-			class="text_acc_02">${navigator.newArticleCount }새글 수를 출력 하는 부분</font></b> / 전체 <font
-			class="text_acc_02">${navigator.totalArticleCount}전체 글수를 출력 하는 부분</font></td>
+			class="text_acc_02">${navigator.newArticleCount }</font></b> / 전체 <font
+			class="text_acc_02">${navigator.totalArticleCount}</font></td>
 		<td width="300" nowrap>
 		<div align="right"></div>
 		</td>
@@ -133,6 +131,10 @@ $(document).ready(function() {
      
      </td-->
 		<td style="word-break: break-all;">
+		<c:forEach  begin="1" end="${article.step }">
+			<img src = "${root}/img/board/blank.gif" width="15" height="1">
+		</c:forEach>
+			
 			<label class ="viewBtn" data-seq="${article.seq }">${article.subject }</label>
 			</td>
 		<td></td>
@@ -167,9 +169,10 @@ $(document).ready(function() {
 		<td nowrap><img class = "moveWriteBtn"
 			src="${root}/img/board/btn_write_01.gif" width="64" height="22"
 			border="0" align="absmiddle" alt="글쓰기"></td>
-		<td width="100%" align="center"><!--PAGE--> ${navigator.navigator}페이지 분류를 하는 부분</td>
-		<td nowrap class="stext"><b>${navigator.pageNo}현재 페이지 출력 부분</b> / ${navigator.totalPageCount}총 페이지수를 출력 하는 부분
-		pages</td>
+			
+		<td width="100%" align="center"><!--PAGE--> ${navigator.navigator}</td>
+		
+		<td nowrap class="stext"><b>${navigator.pageNo}</b> / ${navigator.totalPageCount}pages</td>
 	</tr>
 </table>
 <br>

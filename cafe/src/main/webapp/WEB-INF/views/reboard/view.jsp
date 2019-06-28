@@ -14,8 +14,13 @@ $(document).ready(function() {
 		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/write").submit();
 	});
 	
-	$("#moveReplyBtn").click(function() {
-	
+	$(".moveReplyBtn").click(function() {
+		$('#bcode').val("${bcode}");
+		$('#pg').val("${pg}");
+		$('#key').val("${key}");
+		$('#word').val("${word}");
+		$('#seq').val("${article.seq}");
+		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/reply").submit();
 	});
 	
 	$(".firstListBtn").click(function() {

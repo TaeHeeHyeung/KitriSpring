@@ -5,7 +5,7 @@
 <script>
 $(document).ready(function() {
 	$("#viewBtn").click(function() {
-		$('#bcode').val("${bocde}");
+		$('#bcode').val("${bcode}");
 		$('#pg').val("${pg}");
 		$('#key').val("${key}");
 		$('#word').val("${word}");
@@ -13,7 +13,7 @@ $(document).ready(function() {
 		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/view").submit();
 	});
 	$("#listBtn").click(function() {
-		$('#bcode').val("${bocde}");
+		$('#bcode').val("${bcode}");
 		$('#pg').val("1");
 		$('#key').val("");
 		$('#word').val("");
