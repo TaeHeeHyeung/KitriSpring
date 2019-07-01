@@ -53,7 +53,6 @@ public class ReboardServiceImpl implements ReboardService {
 		String content = reboardDto.getContent().replace("\n", "<br>");
 		reboardDto.setContent(content);
 		logger.debug(content);
-//		System.out.println(content);
 		return reboardDto;
 	} 
 	@Override

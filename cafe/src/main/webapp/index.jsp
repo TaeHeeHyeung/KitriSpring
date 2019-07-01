@@ -11,6 +11,6 @@ memberDto.setEmail("hth0893@naver.com");
 session.setAttribute("userInfo", memberDto);
 
 response.sendRedirect(request.getContextPath()+"/boardadmin/boardmenu");
-// response.sendRedirect(request.getContextPath()+"/reboard/list");
+// response.sendRedirect(request.3getContextPath()+"/reboard/list");
 %>
 
