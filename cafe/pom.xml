@@ -17,6 +17,7 @@
 		<mybatis-version>3.5.1</mybatis-version>
 		<mybatis-spring-version>2.0.1</mybatis-spring-version>
 		<json-version>20180813</json-version>
+		<commons-fileupload-version>1.4</commons-fileupload-version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -142,6 +143,13 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.9.9</version>
+		</dependency>
+
+		
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${commons-fileupload-version}</version>
 		</dependency>
 
 

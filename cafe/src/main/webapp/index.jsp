@@ -1,5 +1,5 @@
 <%@page import="com.kitri.cafe.member.model.MemberDto"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <%
