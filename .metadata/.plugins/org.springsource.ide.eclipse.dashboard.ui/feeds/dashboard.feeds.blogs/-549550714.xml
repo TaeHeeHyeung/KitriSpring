@@ -5,7 +5,50 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2019-07-03T22:42:00Z</updated>
+  <updated>2019-07-05T02:40:52Z</updated>
+  <entry>
+    <title>A Bootiful Podcast: Dr. Venkat Subramaniam on Kotlin, the future of Java, Spring, open-source, being productive and awesome, and so much more.</title>
+    <link rel="alternate" href="https://spring.io/blog/2019/07/05/a-bootiful-podcast-dr-venkat-subramaniam-on-kotlin-the-future-of-java-spring-open-source-being-productive-and-awesome-and-so-much-more" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2019-07-05:3741</id>
+    <updated>2019-07-05T02:40:52Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! Happy 4th to those of you who celebrate. In today&amp;rsquo;s episode, I talk to the man, the myth, the legend, the good Dr. Venkat Subramaniam on Kotlin, the future of Java, Spring, open-source, being productive and awesome, and so much more. &lt;/p&gt;
+&lt;iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/646455324&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"&gt;&lt;/iframe&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="http://twitter.com/Venkat_S"&gt;Dr. Subramaniam on Twitter (@venkat_s)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/starbuxman/status/1103810728883040256"&gt;a tweet asking that whatever recording I do&lt;/a&gt; with Dr. Subramaniam for the Bootiful Podcast be longer than an hour (wish granted!)&lt;/li&gt;
+  &lt;li&gt;The image from today&amp;rsquo;s episode comes from a joint-talk that the good Dr. Subramaniam and I did in Atlanta, GA for the epic Devnexus conference. I am using the photo from &lt;a href="https://twitter.com/mraible/status/1103692771028803590"&gt;Matt Raible&amp;rsquo;s tweet&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Dr. Subramaniam&amp;rsquo;s new book, &lt;a href="https://pragprog.com/book/vskotlin/programming-kotlin"&gt;&lt;em&gt;Programming Kotlin&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Explore the project on start.spring.io</title>
+    <link rel="alternate" href="https://spring.io/blog/2019/07/04/explore-the-project-on-start-spring-io" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Damien Vitrac</name>
+    </author>
+    <id>tag:spring.io,2019-07-03:3738</id>
+    <updated>2019-07-04T11:35:58Z</updated>
+    <content type="html">&lt;p&gt;Introducing the new feature on &lt;a href="https://start.spring.io"&gt;start.spring.io&lt;/a&gt;: &lt;strong&gt;Explore the project&lt;/strong&gt;.&lt;br/&gt;With this, you can now take a peek at the generated project files without having to actually download it, unzip it, etc. &lt;/p&gt;
+&lt;p&gt;A lot of developers &lt;strong&gt;requested this feature&lt;/strong&gt;, because they&amp;rsquo;d like to compare with another project, or upgrade an existing application. We&amp;rsquo;d like to explore those possibilities more in the future, so &lt;strong&gt;send your feedback our way&lt;/strong&gt;!&lt;/p&gt;
+&lt;img src="https://static.spring.io/blog/damienvitrac/20190703/explore.png" /&gt;
+&lt;p&gt;&lt;strong&gt;Explore the project:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Depending on the project, the &lt;strong&gt;pom.xml&lt;/strong&gt; / &lt;strong&gt;build.gradle&lt;/strong&gt; / &lt;strong&gt;build.gradle.kts&lt;/strong&gt; will be shown by default&lt;/li&gt;
+  &lt;li&gt;Highlighting code (1), preview markdown&lt;/li&gt;
+  &lt;li&gt;Copy and download a file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(1) Supported: Javascript, Markdown, Kotlin, Gradle, Gitignore, Java, XML, Properties, Groovy&lt;/p&gt;
+&lt;p&gt;Note that this &lt;strong&gt;first version of the feature is not always mobile friendly&lt;/strong&gt; and that we&amp;rsquo;re collecting feedback as a first step.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;We appreciate &lt;strong&gt;everyone&amp;rsquo;s help and feedback&lt;/strong&gt; as we continue learning and iterating on the site and the initializr library. &lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Cloud Hoxton.M1 is available.</title>
     <link rel="alternate" href="https://spring.io/blog/2019/07/03/spring-cloud-hoxton-m1-is-available" />
@@ -1073,37 +1116,6 @@ dependencies {&#xD;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Boot 2.2.0.M4</title>
-    <link rel="alternate" href="https://spring.io/blog/2019/06/19/spring-boot-2-2-0-m4" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Andy Wilkinson</name>
-    </author>
-    <id>tag:spring.io,2019-06-19:3722</id>
-    <updated>2019-06-19T11:46:29Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and everyone that contributed, I am pleased to announce that the fourth milestone of Spring Boot 2.2 has been released and is available from &lt;a href="http://repo.spring.io/milestone/"&gt;our milestone repository&lt;/a&gt;. This release closes over &lt;a href="https://github.com/spring-projects/spring-boot/milestone/141?closed=1"&gt;170 issues and pull requests&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;For a complete list of changes and upgrade instructions, please see the &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.2-Release-Notes"&gt;Spring Boot 2.2 Release Notes&lt;/a&gt; on the wiki and the &lt;a href="http://docs.spring.io/spring-boot/docs/2.2.0.M4/reference/htmlsingle/"&gt;updated reference documentation&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;If you want to get started with 2.2 and try out the new features, you can bootstrap a new project on &lt;a href="https://start.spring.io"&gt;https://start.spring.io&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/2.2.0.M4/reference/htmlsingle"&gt;Documentation&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Boot 2.1.6 released</title>
-    <link rel="alternate" href="https://spring.io/blog/2019/06/19/spring-boot-2-1-6-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Phil Webb</name>
-    </author>
-    <id>tag:spring.io,2019-06-19:3721</id>
-    <updated>2019-06-19T05:34:00Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce that Spring Boot 2.1.6 has been released and is now available from &lt;a href="http://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and Maven Central.&lt;/p&gt;
-&lt;p&gt;This is a maintenance release that includes &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.1.6.RELEASE"&gt;a number bug fixes, dependency updates and documentation improvements&lt;/a&gt;. &lt;/p&gt;
-&lt;p&gt;Remember that Spring Boot 1.5 will be &lt;a href="https://spring.io/blog/2018/07/30/spring-boot-1-x-eol-aug-1st-2019"&gt;end of life in august&lt;/a&gt;, so all users should now be upgrading to Spring Boot 2.1.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
-&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="http://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="http://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://spring.io/projects/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/htmlsingle"&gt;Documentation&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
