@@ -47,7 +47,7 @@ $(document).ready(function() {
 	</c:if>
 	
 <%-- 	<a href="${root}/${board.control}/write?bcode=${board.bcode}&pg=1&key=&word="> --%>
-	<a href="${root}/${board.control}/list?bcode=${board.bcode}&pg=1&key=&word=">
+	<a href="${root}/${board.control}/write?bcode=${board.bcode}&pg=1&key=&word=">
 		${board.bname}
 	</a>
 	<c:if test= "${i.index < boardmenu.size() - 1 }" >

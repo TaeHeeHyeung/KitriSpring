@@ -4,9 +4,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kitri.cafe.board.dao.MemoDao;
 import com.kitri.cafe.board.model.MemoDto;
 
 @Service
@@ -14,30 +17,38 @@ public class MemoServiceImpl implements MemoService {
 
 	@Autowired
 	private SqlSession sqlSession;
-	
+
 	@Override
 	public void writeMemo(MemoDto memoDto) {
-		// TODO Auto-generated method stub
-		
+		sqlSession.getMapper(MemoDao.class).writeMemo(memoDto);
 	}
 
 	@Override
-	public List<MemoDto> listMemo(Map<String, String> parameter) {
-		// TODO Auto-generated method stub
-		return null;
+	public String listMemo(int seq) {
+		List<MemoDto> list = sqlSession.getMapper(MemoDao.class).listMemo(seq);
+		JSONArray jsonArr = new JSONArray(list);
+		JSONObject jsonObj = new JSONObject();
+		jsonObj.put("memolist", jsonArr);
+		return jsonObj.toString();
 	}
 
 	@Override
 	public void modifyMemo(MemoDto memoDto) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
-	public void deleteMemo(int mseq) {
-		// TODO Auto-generated method stub
-		
+	public String deleteMemo(int seq, int mseq) {
+		sqlSession.getMapper(MemoDao.class).deleteMemo(mseq);
+		List<MemoDto> list = sqlSession.getMapper(MemoDao.class).listMemo(seq);
+		JSONArray jsonArr = new JSONArray(list);
+		JSONObject jsonObj = new JSONObject();
+		jsonObj.put("memolist", jsonArr);
+		return jsonObj.toString();
 	}
+// shift +alt +m 	
+//	String makeJson() {
+//		
+//	}
 
-	
 }

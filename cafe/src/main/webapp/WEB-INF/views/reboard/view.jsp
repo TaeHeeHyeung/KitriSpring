@@ -38,6 +38,114 @@ $(document).ready(function() {
 		$('#word').val("${word}");
 		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/list").submit();
 	});
+	
+	//글 수정
+	$('.moveModifyBtn').click(function(){
+		
+	});
+	
+	//글 삭제
+	$('.moveDeleteBtn').click(function(){
+		
+	});
+
+	
+	$('#memoBtn').click(function(){
+		if('${userInfo ==null}' =='true'){
+			alert("로그인해주세요");
+		}else{
+			console.log("view.jsp memoBtn clicked");
+			var seq='${article.seq}';
+			var mcontent=$("#mcontent").val();
+// 			var param =JSON.stringify({'seq':parseInt(seq), 'mcontent':mcontent});
+			var param =JSON.stringify({'seq':seq, 'mcontent':mcontent});
+// GET, POST, DELETE, PUT //겟 삽입 삭제
+			console.log(param);
+			if(mcontent.trim().length !=0){
+				$.ajax({
+					url: "${root}/memo",
+					type: "POST", 
+					contentType: "application/json;charset=UTF-8",
+					dataType: "json",
+					data: param,
+					success: function(response) {
+						makeMemoList(response);
+						$("#mcontent").val('');
+					}
+				});
+			}
+		}
+	});
+	
+	function makeMemoList(memos){
+		var memocnt = memos.memolist.length;
+		var memostr = '';
+		for( var i=0; i<memocnt; i++){
+			var memo = memos.memolist[i];
+			memostr += '<tr>';
+			memostr += '	<td>'+memo.name+'</td>';
+			memostr += '<td style="padding: 10px">';
+			memostr += memo.mcontent;
+			memostr += '</td>';
+			memostr += '<td width="100" style="padding: 10px">';
+			memostr += memo.mtime;
+			memostr += '</td>';
+			if('${userInfo.id}' == memo.id){
+				memostr += '<td width="100" style="padding: 10px" data-mseq="'+memo.mseq+'" data-seq="'+memo.seq+'">';
+				memostr += '	<input type = "button" class="mmodifyBtn" value="수정">';
+				memostr += '	<input type = "button" class="mdeleteBtn" value="삭제">';
+				memostr += '</td>';
+			}
+			memostr += '</tr>';
+			
+			memostr += '<tr style ="display: none;">';
+			memostr += '	<td colspan ="3" style="padding: 10px">';
+			memostr += '	<textarea class="mcontent" cols="160" rows="5">'+ memo.mcontent+'</textarea>';
+			memostr += '	</td>';
+			memostr += '	<td width="100" style="padding: 10px">';
+			memostr += '	<input type="button" id ="memoModifyBtn" value="글수정"/>';
+			memostr += '	<input type="button" id ="memoModifyCancelBtn" value="취소"/>';
+			memostr += '	</td>';
+			memostr += '</tr>';
+			
+			memostr += '<tr>';
+			memostr += '<td class="bg_board_title_02" colspan="4" height="1"';
+			memostr += 'style="overflow: hidden; padding: 0px"></td>';
+			memostr += '</tr>';
+		}
+		$("#mlist").empty().append(memostr);
+	}
+	getMemoList();
+	
+	function getMemoList(){	
+		$.ajax({
+			url: "${root}/memo",
+			type: "GET", 
+			contentType: "application/json;charset=UTF-8",
+			dataType: "json",
+			data: {seq: '${article.seq}'},
+			success: function(response) {
+				makeMemoList(response);
+				$("#mcontent").val('');
+			}
+		});
+	}
+	
+	$(document).on("click",".mdeleteBtn",function(){
+		var param= JSON.stringify({"sseq": ${article.seq}} );
+		$.ajax({
+			url: "${root}/memo/"+$(this).parent("td").attr("data-seq")+"/"+$(this).parent("td").attr("data-mseq"),
+			type: "DELETE", 
+			contentType: "application/json;charset=UTF-8",
+			dataType: "json",
+			data :param,
+			success: function(response) {
+				makeMemoList(response);
+				$("#mcontent").val('');
+			}
+		});
+	});
+	
 });
 </script>
 
@@ -65,7 +173,8 @@ $(document).ready(function() {
 			border="0" align="absmiddle" alt="글쓰기" class="moveWriteBtn">
 			<img src="${root}/img/board/btn_reply.gif" width="40" height="22"
 			border="0" align="absmiddle" alt="답글" class="moveReplyBtn">
-			<c:if test="${userInfo.id == article.id} ">
+			
+			<c:if test="${userInfo.id == article.id}">
 			    <img src="${root}/img/board/btn_modify.gif" 
 				border="0" align="absmiddle" alt="글수정" class="moveModifyBtn">
 				<img src="${root}/img/board/btn_delete.gif" 
@@ -154,11 +263,18 @@ $(document).ready(function() {
 		<td colspan="3" height="5" style="padding: 0px"></td>
 	</tr>
 	<tr valign="top">
+	
 		<td valign="bottom" nowrap><img
 			src="${root}/img/board/btn_write_01.gif" width="64" height="22"
 			border="0" align="absmiddle" alt="글쓰기" class="moveWriteBtn"><img
 			src="${root}/img/board/btn_reply.gif" width="40" height="22"
 			border="0" align="absmiddle" alt="답글" class="moveReplyBtn">
+			<c:if test="${userInfo.id == article.id}">
+			    <img src="${root}/img/board/btn_modify.gif" 
+				border="0" align="absmiddle" alt="글수정" class="moveModifyBtn">
+				<img src="${root}/img/board/btn_delete.gif" 
+				border="0" align="absmiddle" alt="글삭제" class="moveDeleteBtn">
+			</c:if>
 		</td>
 		<td style="padding-left: 4px" width="100%"><a href=""
 			target="new"><img src="${root}/img/board/btn_print.gif"
@@ -176,5 +292,40 @@ $(document).ready(function() {
 			hspace="3"></a></td>
 	</tr>
 </table>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td colspan="2" height="5" style="padding: 0px"></td>
+	</tr>
+	<tr>
+		<td class="bg_board_title_02" colspan="2" height="1"
+			style="overflow: hidden; padding: 0px"></td>
+	</tr>
+	<tr>
+		<td style="padding: 10px">
+		<textarea id="mcontent" cols="160" rows="5"></textarea>
+		</td>
+		<td width="100" style="padding: 10px">
+		<input type="button" id ="memoBtn" value="글작성"/>
+		</td>
+	</tr>
+	<tr>
+		<td class="bg_board_title_02" colspan="4" height="1"
+			style="overflow: hidden; padding: 0px">
+			</td>
+	</tr>
+</table>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td colspan="4" height="5" style="padding: 0px"></td>
+	</tr>
+	<tr>
+		<td class="bg_board_title_02" colspan="3" height="1"
+			style="overflow: hidden; padding: 0px"></td>
+	</tr>
+	<tbody id="mlist">
+	</tbody>
+</table>
+
 <br>
 <%@ include file = "/WEB-INF/views/commons/template/bottom.jsp" %>

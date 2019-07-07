@@ -44,9 +44,11 @@ public class ReboardController {
 			Model model,HttpSession session) {
 		
 		MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
+		
 		String path ="";
 		if(memberDto !=null) {
 			ReboardDto reboardDto = reboardService.getArticle(seq);
+			
 			model.addAttribute("article", reboardDto);
 			model.addAttribute("parameter", parameter);
 			logger.debug(reboardDto.toString());
