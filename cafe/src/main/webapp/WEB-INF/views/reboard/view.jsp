@@ -133,6 +133,7 @@ $(document).ready(function() {
 	
 	$(document).on("click",".mdeleteBtn",function(){
 		var param= JSON.stringify({"sseq": ${article.seq}} );
+		
 		$.ajax({
 			url: "${root}/memo/"+$(this).parent("td").attr("data-seq")+"/"+$(this).parent("td").attr("data-mseq"),
 			type: "DELETE", 

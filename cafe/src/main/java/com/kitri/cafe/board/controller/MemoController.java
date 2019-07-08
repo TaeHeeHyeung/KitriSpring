@@ -36,7 +36,7 @@ public class MemoController {
 	//, consumes = MediaType.APPLICATION_JSON_VALUE 무조건 contenttype이 json인것만 호출한다.
 	// requestbody : json을 넣어줄 때
 //	@RequestBody 'application/json;charset=UTF-8' not supported (pom.xml에 jackson library 필요
-//	@ResponseBody // json을 넘겨줄 때) -> restcontroller
+//	@ResponseBody // json을 넘겨줄 때) -> @RestController 를 사용하고 생략
 	@RequestMapping(method = RequestMethod.POST)
 	public String write(@RequestBody MemoDto memoDto, HttpSession session) {
 		MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
