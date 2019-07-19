@@ -16,6 +16,7 @@ import com.kitri.cafe.common.dao.CommonDao;
 import com.kitri.cafe.util.CafeConstance;
 import com.kitri.cafe.util.NumberCheck;
 
+//DB에서 받은 내용을 가공 전달한다. (처리작업)
 @Service
 public class ReboardServiceImpl implements ReboardService {
 

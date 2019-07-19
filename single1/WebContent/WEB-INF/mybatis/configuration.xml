@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+        <setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	<typeAliases>
+		<typeAlias alias="userDto" type="com.kitri.single.user.model.UserDto"/>
+
+		<typeAlias alias="searchLogDto" type="com.kitri.single.home.model.SearchLogDto"/>
+		
+		<typeAlias alias="hashtagDto" type="com.kitri.single.hashtag.model.HashtagDto"/>
+		<typeAlias alias="hashtagTypeDto" type="com.kitri.single.hashtag.model.HashtagTypeDto"/>
+		
+		<typeAlias alias="groupDto" type="com.kitri.single.group.model.GroupDto"/>
+		
+		<typeAlias alias="boardCategoryDto" type="com.kitri.single.board.model.BoardCategoryDto"/>
+		<typeAlias alias="boardDto" type="com.kitri.single.board.model.BoardDto"/>
+		<typeAlias alias="boardListDto" type="com.kitri.single.board.model.BoardListDto"/>
+		<!-- 새로만듬  -->
+		<typeAlias alias="boardPageDto" type="com.kitri.single.board.model.BoardPageDto"/>
+		<!-- ㅡㅡㅡㅡ -->
+		<typeAlias alias="boardTypeDto" type="com.kitri.single.board.model.BoardTypeDto"/>
+		<typeAlias alias="likeDto" type="com.kitri.single.board.model.LikeDto"/>
+		<typeAlias alias="replyDto" type="com.kitri.single.board.model.ReplyDto"/>
+		
+		
+		<typeAlias alias="SnsDto" type="com.kitri.single.sns.model.SnsDto"/>
+		<typeAlias alias="groupMemberDto" type="com.kitri.single.group.model.GroupMemberDto"/>
+		<typeAlias alias="calendarDto" type="com.kitri.single.group.model.CalendarDto"/>
+		
+	</typeAliases>
+	
+</configuration>

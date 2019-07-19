@@ -26,6 +26,7 @@ import com.kitri.cafe.util.PageNavigation;
 
 
 
+//Controller는 요청과 응답을 처리한다.
 @Controller
 @RequestMapping("/reboard")
 public class ReboardController {
@@ -48,7 +49,6 @@ public class ReboardController {
 		String path ="";
 		if(memberDto !=null) {
 			ReboardDto reboardDto = reboardService.getArticle(seq);
-			
 			model.addAttribute("article", reboardDto);
 			model.addAttribute("parameter", parameter);
 			logger.debug(reboardDto.toString());

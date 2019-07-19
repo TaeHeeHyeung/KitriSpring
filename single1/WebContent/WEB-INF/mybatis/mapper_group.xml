@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     
+<mapper namespace="com.kitri.single.group.dao.GroupDao">
+	<select id="getGroupList" parameterType="map" resultType="groupDto">
+	select *
+	from (
+	    select 
+	        rownum rn
+	        , ordergroup.*
+	    from (
+	        select 
+	            g.group_num groupNum
+	            , g.group_category_num groupCategoryNum
+	            , gc.group_category_name groupCategoryName
+	            , g.group_name as groupName
+	            , g.group_description as groupDescription
+	            , g.group_img_src as groupImgSrc
+	            , g.group_member_count as groupMemberCount
+	            , g.group_member_limit as groupMemberLimit	    
+	            , g.group_main_place as groupMainPlace
+	            , to_char(g.group_createdate, 'yyyy/mm/dd') as groupCreatedate
+	        from 
+	            single_group g
+	            left outer join single_group_category gc
+	                on g.group_category_num = gc.group_category_num
+	        where g.group_statecode = '1'
+	        
+	        <if test="groupCategoryNum != 0 ">
+	        and g.group_category_num = #{groupCategoryNum}
+	        </if>
+	        <if test="isMyGroup == null || isMyGroup == '' ">
+	        and g.group_member_count &lt; g.group_member_limit
+			and g.group_num not in (
+			                        select group_num
+			                        from single_group_member gm
+			                        where gm.user_id = #{userId}
+			                        )
+			</if>
+			<if test="isMyGroup == 'yes' ">
+			and g.group_num in (
+			                        select group_num
+			                        from single_group_member gm
+			                        where gm.user_id = #{userId}
+			                        )
+			</if>
+	        order by g.group_num
+	        ) ordergroup
+	    where rownum &lt; #{endRow}
+	    ) rowgroup
+	where rowgroup.rn > #{startRow}
+	</select>
+	
+	<select id="getGroup" parameterType="int" resultType="groupDto">
+	select 
+        g.group_num groupNum
+        , g.group_category_num groupCategoryNum
+        , gc.group_category_name groupCategoryName
+        , g.group_name as groupName
+        , g.group_description as groupDescription
+        , g.group_img_src as groupImgSrc
+        , g.group_member_count as groupMemberCount
+        , g.group_member_limit as groupMemberLimit	    
+        , g.group_main_place as groupMainPlace
+        , to_char(g.group_createdate, 'yyyy/mm/dd') as groupCreatedate
+    from 
+        single_group g
+        left outer join single_group_category gc
+            on g.group_category_num = gc.group_category_num
+    where g.group_statecode = '1'
+   	and g.group_num = #{groupNum}
+	</select>
+	
+	
+	<select id="selectGroupNumSeq" resultType="int">
+	select group_num_seq.nextval
+	from dual
+	</select>
+	
+	<insert id="insertGroup" parameterType="groupDto">
+	insert into single_group(
+	    group_num
+	    , group_category_num
+	    , group_name
+	    , GROUP_DESCRIPTION
+	    , GROUP_IMG_SRC
+	    , GROUP_MEMBER_COUNT
+	    , GROUP_MEMBER_LIMIT
+	    , GROUP_MAIN_PLACE
+	    , GROUP_CREATEDATE
+	    , GROUP_STATECODE
+	)values(
+	    #{groupNum}
+	    , #{groupCategoryNum}
+	    , #{groupName}
+	    , #{groupDescription}
+	    , #{groupImgSrc}
+	    , #{groupMemberCount}
+	    , #{groupMemberLimit}
+	    , #{groupMainPlace}
+	    , sysdate
+	    , '1'
+	)
+	</insert>
+	
+	<insert id="insertGroupMember" parameterType="groupMemberDto">
+	insert into single_group_member(
+	    group_num
+	    , user_id
+	    , group_member_statecode
+	    , group_joindate
+	)values(
+	    #{groupNum}
+	    , #{userId}
+	    , #{groupMemberStatecode}
+	    , sysdate
+	)
+	</insert>
+	
+	<select id="selectGroupMember" parameterType="map" resultType="groupMemberDto">
+	select 
+	    group_num groupNum
+	    , user_id userId
+	    , group_member_statecode groupMemberStatecode
+	    , group_joindate groupJoindate
+	    , group_requestdate groupRequestdate
+	from single_group_member
+	where group_num = #{groupNum}
+	and user_id = #{userId}
+	</select>
+	
+	<select id="getGroupConunt" parameterType="map" resultType="int">
+	select count(group_num)
+	from single_group
+	where 
+	    group_statecode = '1'
+	    <if test="groupCategoryNum != 0 ">
+	    and group_category_num = ${groupCategoryNum}
+	    </if>
+   	    <if test="isMyGroup == 'yes' ">
+	    and group_num in ( select group_num 
+	    						    from single_group_member
+	    							where user_id = #{userId} )
+	    </if>
+	    <if test="isMyGroup == null || isMyGroup == '' ">
+	    and group_num not in ( select group_num 
+	    						    from single_group_member
+	    							where user_id = #{userId} )
+	    </if>
+	</select>
+	
+	<select id="selectCalendarSeq" resultType="int">
+	select calendar_num_seq.nextval
+	from dual
+	</select>
+	
+	<insert id="insertCalendar" parameterType="calendarDto">
+	insert into single_calendar(
+	    calendar_num
+	    , group_num
+	    , calendar_subject
+	    , calendar_content
+	    , calendar_date
+	    , calendar_x_loc
+	    , calendar_y_loc
+	)values(
+	    #{calendarNum}
+	    , #{groupNum}
+	    , #{calendarSubject}
+	    , #{calendarContent}
+	    , to_date(#{calendarDate}, 'mm/dd/yyyy')
+	    , #{calendarXLoc}
+	    , #{calendarYLoc}
+	)
+	</insert>
+	
+	<select id="selectCalendar" parameterType="map" resultType="calendarDto">
+	select 
+	    calendar_num calendarNum
+	    , group_num groupNum
+	    , calendar_subject calendarSubject
+	    , calendar_content calendarContent
+	    , to_char(calendar_date, 'mm/dd/yyyy') calendarDate
+	    , calendar_x_loc calendarXLoc
+	    , calendar_y_loc calendarYLoc
+	from single_calendar
+	where calendar_num = #{calendarNum}
+	and group_num = #{groupNum}
+	</select>
+	
+	<select id="selectCalendarList" parameterType="map" resultType="calendarDto">
+	select 
+	    calendar_num calendarNum
+	    , group_num groupNum
+	    , calendar_subject calendarSubject
+	    , calendar_content calendarContent
+	    , to_char(calendar_date, 'mm/dd/yyyy') calendarDate
+	    , calendar_x_loc calendarXLoc
+	    , calendar_y_loc calendarYLoc
+	from single_calendar
+	where group_num = #{groupNum}
+	and to_char(calendar_date, 'yyyy/mm') = #{date}
+	</select>
+	
+	<update id="updateCalendar" parameterType="calendarDto">
+	update single_calendar
+	set
+		group_num = #{groupNum}
+		, calendar_subject = #{calendarSubject}
+	    , calendar_content = #{calendarContent}
+	    , calendar_date = to_date(#{calendarDate}, 'mm/dd/yyyy')
+	    , calendar_x_loc = #{calendarXLoc}
+	    , calendar_y_loc = #{calendarYLoc}
+	where
+		calendar_num = #{calendarNum}
+	</update>
+	
+	<delete id="deleteCalendar" parameterType="int">
+	delete from single_calendar
+	where calendar_num = #{calendarNum}
+	</delete>
+	
+	<update id="updateGroup" parameterType="groupDto">
+	update single_group
+	set
+	    group_category_num = #{groupCategoryNum}
+	    , group_name = #{groupName}
+	    , group_description = #{groupDescription}
+	    , group_img_src = #{groupImgSrc}
+	    , group_member_limit = #{groupMemberLimit}
+	    , group_main_place = #{groupMainPlace}
+	where
+	    group_statecode = '1'
+	    and group_num = #{groupNum}
+	</update>
+	
+	<delete id="deleteHashtag" parameterType="map">
+	delete from single_hashtag
+	where
+		hashtag_type_num = #{hashtagTypeNum}
+		and group_num = #{groupNum}
+	</delete>
+	
+	<insert id="insertGroupStamp" parameterType="map">
+	insert into single_stamp
+	values(
+		#{userId}
+		, #{groupNum}
+	)
+	</insert>
+	
+	<select id="countGroupStamp" parameterType="map" resultType="int">
+	select count(*)
+	from single_stamp
+	where user_id = #{userId}
+	and group_num = #{groupNum}
+	</select>
+	
+</mapper>

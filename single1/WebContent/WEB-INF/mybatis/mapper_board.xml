@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     
+<mapper namespace="com.kitri.single.board.dao.BoardDao">
+	
+	<insert id = "writeArticle" parameterType="boardDto">
+	insert into single_board values(#{boardNum}, 1, #{userId}, #{userNickname}, #{boardSubject}
+	, #{boardContent}, 0, 0, sysdate, null, null, '1')
+	</insert>
+	
+	
+	<!-- 원래 set,get이나 생성자를 이용해야 하지만 디티오랑 알리아스명이랑 같으면 자동으로 들어감 -->
+	<select id="viewArticle" parameterType="int" resultType="boardDto">
+	select board_num boardNum, board_list_num boardListNum, user_id userId, 
+		user_nickname userNickname, board_subject boardSubject, 
+		board_content boardContent, board_views boardViews, board_like boardLike,
+		board_createDate boardCreatedate, 
+		board_updatedate boardUpdatedate, board_deletedate boardDeletedate, 
+		board_statecode boardStatecode
+	from single_board
+	where board_statecode = '1'
+	and board_num = #{boardNum}
+	</select>
+	
+	<select id="totalPage" resultType="int">
+	select count(*)
+	from (  select * from single_board )
+	</select>
+	
+	
+	
+	<!-- <(오른쪽이 더 큰 표시)를 쓰려면 &lt; 표시로 써야함. -->
+	<select id="findByRows" parameterType="boardPageDto" resultType="boardDto" >
+	<![CDATA[
+	select *
+	from (
+	    select rownum rn, a.*
+	    from(
+		    select 
+				board_num boardNum, board_list_num boardListNum, user_id userId, 
+				user_nickname userNickname, board_subject boardSubject, 
+				board_content boardContent, board_views boardViews, board_like boardLike,
+				board_createDate boardCreatedate, 
+				board_updatedate boardUpdatedate, board_deletedate boardDeletedate, 
+				board_statecode boardStatecode
+		    from single_board
+		    order by board_createdate desc
+		    ) a
+	    where rownum <= #{endRow}
+	    ) 
+	where rn >= #{startRow}
+	]]>
+	</select>
+	
+	
+	<select id="weekList" resultType="boardDto">
+	<![CDATA[
+	select rownum, board.*
+	from (select board_num boardNum, board_list_num boardListNum, user_id userId, 
+	                user_nickname userNickname, board_subject boardSubject, 
+	                board_content boardContent, board_views boardViews, board_like boardLike,
+	                board_createDate boardCreatedate, 
+	                board_updatedate boardUpdatedate, board_deletedate boardDeletedate, 
+	                board_statecode boardStatecode
+	    from single_board
+	    order by board_like desc, boardCreatedate desc) board
+	where rownum <= 5
+	]]>
+	</select>
+	
+		
+	
+	
+</mapper>
+   
+   
